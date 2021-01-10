@@ -1,6 +1,6 @@
 'use strict';
 // Global variable 
-var numberOfTrials = 3;
+var numberOfTrials = 25;
 var itemsArray = [];
 var itemName = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass']
 var leftItem = document.getElementById('left-item-img');
