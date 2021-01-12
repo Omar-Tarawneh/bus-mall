@@ -28,7 +28,7 @@ function Items(name, path) {
     this.path = path;
     this.time = 0;
     this.vote = 0;
-    itemsArray.push(this)
+    itemsArray.push(this);
 }
 
 // Creating the objects
@@ -58,20 +58,19 @@ function render(left, middle, right) {
     itemsArray[left].time++;
     itemsArray[middle].time++;
     itemsArray[right].time++;
-
 }
 // check the available item that can be rendered
 function availableItem(items) {
     for (let index = 0; index < items.length; index++) {
         for (let j = 0; j < uniqueItem.length; j++) {
             if (itemsArray[items[index]] === uniqueItem[j]) {
-                console.log(itemsArray[items[index]] === uniqueItem[j]);
+                // console.log(itemsArray[items[index]] === uniqueItem[j]);
                 itemsArray[items[index]] === uniqueItem[j]
                 return true;
             }
         }
     }
-    console.log(items)
+    // console.log(items)
     return false;
 }
 
@@ -120,6 +119,18 @@ function displayList(event) {
         uList.appendChild(listItem);
         // }
 
+    }
+    storeData();
+}
+// Local Storage
+function storeData() {
+    localStorage.setItem('itemsData', JSON.stringify(itemsArray));
+    console.log(localStorage);
+}
+// check the data before refresh and push them inside the items array
+function checkAndRestore() {
+    if (localStorage.length > 0) {
+        itemsArray = JSON.parse(localStorage.getItem('itemsData'));
     }
 }
 // render the bar chart
@@ -194,11 +205,10 @@ function countItem(event) {
             randomindexPath();
         }
     } else {
-        itemSection.removeEventListener('click', countItem)
+        itemSection.removeEventListener('click', countItem);
         // add the chart render function after removing the event 
-        barChartRender()
+        barChartRender();
     }
-
 }
 // Event listener
 button.addEventListener('click', displayList);
@@ -208,3 +218,4 @@ itemSection.addEventListener('click', countItem);
 
 // function call
 randomindexPath();
+checkAndRestore();
