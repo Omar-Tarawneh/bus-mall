@@ -113,11 +113,9 @@ function checkImg(ind) {
 function displayList(event) {
     var uList = document.getElementById('items-clicks');
     for (let index = 0; index < itemsArray.length; index++) {
-        // if (itemsArray[index].vote != 0) {
         var listItem = document.createElement('li');
         listItem.textContent = itemsArray[index].name + " had " + itemsArray[index].vote + " votes," + "and was seen " + itemsArray[index].time + " times.";
         uList.appendChild(listItem);
-        // }
 
     }
     storeData();

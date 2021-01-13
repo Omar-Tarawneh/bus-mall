@@ -6,22 +6,28 @@ body {
   background-color:#18ad3155;
 
 }
-
-header {
-background: #18ad3155;
-width: 100%;
+header{
+  background: rosybrown;
+  color: black;
+  padding-top: 30px;
+  min-height: 70px;
 }
+header a {
+  color: rgb(129, 123, 123);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
 
-nav {
-max-width:  900px;
-margin: 0 auto;
-overflow: hidden
+
 }
-
-nav ul {
-margin: auto;
-display: block;
-max-width: 660px;
+ul {
+  margin: 0;
+  padding: 0;
+}
+header li{
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
 }
 
 main{
@@ -47,4 +53,77 @@ section{
 #all-items{
   height: 400px;
 }
+
+
+#result {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+#result:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+#result:active {
+  color: #000
+}
+
+#result:active:after {
+  background: transparent;
+}
+
+#result:hover:before {
+  opacity: 1;
+}
+
+#result:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
